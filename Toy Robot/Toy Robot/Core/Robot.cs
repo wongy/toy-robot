@@ -1,8 +1,9 @@
 ﻿using System;
+using Toy_Robot.Core.Interfaces;
 
 namespace Toy_Robot.Core
 {
-    public class Robot
+    public class Robot: IRobot
     {
         public enum Direction
         {
@@ -43,7 +44,7 @@ namespace Toy_Robot.Core
             }
         }
 
-        public void Left()
+        public void RotateLeft()
         {
             if (CurrentDirection.Equals(Direction.North.ToString(), StringComparison.OrdinalIgnoreCase))
             {
@@ -63,7 +64,7 @@ namespace Toy_Robot.Core
             }
         }
 
-        public void Right()
+        public void RotateRight()
         {
             if (CurrentDirection.Equals(Direction.North.ToString(), StringComparison.OrdinalIgnoreCase))
             {
