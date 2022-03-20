@@ -2,7 +2,11 @@
 {
     interface IRobot
     {
-        void Move(int numberOfMoves);
+        int CurrentXPosition { get; set; }
+        int CurrentYPosition { get; set; }
+        string CurrentDirection { get; set; }
+
+        void Move(int numberOfMoves = 1);
         void RotateLeft();
         void RotateRight();
         string Report();

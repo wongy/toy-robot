@@ -1,18 +1,11 @@
 ﻿using System;
 using Toy_Robot.Core.Interfaces;
+using static Toy_Robot.Core.Models.SharedModels;
 
 namespace Toy_Robot.Core
 {
     public class Robot: IRobot
     {
-        public enum Direction
-        {
-            North,
-            East,
-            South,
-            West
-        }
-
         public int CurrentXPosition { get; set; }
         public int CurrentYPosition { get; set; }
         public string CurrentDirection { get; set; }

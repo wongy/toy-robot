@@ -1,6 +1,8 @@
-﻿namespace Toy_Robot.Core
+﻿using Toy_Robot.Core.Interfaces;
+
+namespace Toy_Robot.Core
 {
-    class Board
+    class Board: IBoard
     {
         // constants for board dimensions boundaries
         private const int MinX = 0;

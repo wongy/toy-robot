@@ -1,4 +1,5 @@
 ﻿using System;
+using Toy_Robot.Core;
 
 namespace Toy_Robot
 {
@@ -6,7 +7,9 @@ namespace Toy_Robot
     {
         static void Main(string[] args)
         {
-            string inputCommand = String.Empty;
+            string inputCommand = string.Empty;
+            Board board = new Board();
+            Simulator simulator = new Simulator(board);
             Console.WriteLine("Start application - enter commands (type ':q' to quit)");
 
             while(true)
@@ -16,6 +19,12 @@ namespace Toy_Robot
                 if (inputCommand.Equals(":q"))
                 {
                     break;
+                }
+
+                string commandResponse = simulator.ProcessCommand(inputCommand);
+                if (!string.IsNullOrEmpty(commandResponse))
+                {
+                    Console.WriteLine(commandResponse);
                 }
             }
 
