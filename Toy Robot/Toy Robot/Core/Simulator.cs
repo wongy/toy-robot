@@ -49,14 +49,14 @@ namespace Toy_Robot.Core
                 // Check that place command is valid and place robot
                 return Place(command);
             }
-            if (command.Contains(Commands.Avoid.ToString(), StringComparison.OrdinalIgnoreCase))
-            {
-                Avoid(command);
-                return String.Empty;
-            }
             else if (!IsRobotPlaced)
             {
                 return NotPlacedMessage;
+            }
+            else if (command.Contains(Commands.Avoid.ToString(), StringComparison.OrdinalIgnoreCase))
+            {
+                Avoid(command);
+                return String.Empty;
             }
             else if (command.Equals(Commands.Move.ToString(), StringComparison.OrdinalIgnoreCase))
             {
