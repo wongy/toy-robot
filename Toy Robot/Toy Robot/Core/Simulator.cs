@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Toy_Robot.Core.Interfaces;
-
+using ToyRobot.Core.Interfaces;
+using ToyRobot.Core.Models;
 using static Toy_Robot.Core.Models.SharedModels;
 
 namespace Toy_Robot.Core
@@ -24,17 +25,20 @@ namespace Toy_Robot.Core
             Left,
             Right,
             Move,
-            Report
+            Report,
+            Avoid
         }
 
         public IBoard _board;
         public IRobot _robot;
+        public List<Obstacle> _obstacles;
 
         private bool IsRobotPlaced = false;
 
-        public Simulator(IBoard board)
+        public Simulator(IBoard board, List<Obstacle> obstacles)
         {
             _board = board;
+            _obstacles = obstacles;
         }
 
         // Used to read user input and decide which command to run
@@ -44,6 +48,11 @@ namespace Toy_Robot.Core
             {
                 // Check that place command is valid and place robot
                 return Place(command);
+            }
+            if (command.Contains(Commands.Avoid.ToString(), StringComparison.OrdinalIgnoreCase))
+            {
+                Avoid(command);
+                return String.Empty;
             }
             else if (!IsRobotPlaced)
             {
@@ -76,8 +85,7 @@ namespace Toy_Robot.Core
 
         public string Place(string command)
         {
-            var splitPlaceCommand = SplitPlaceCommand(command);
-            //Console.WriteLine(string.Join(",", splitPlaceCommand));
+            var splitPlaceCommand = SplitCommand(command);
 
             if (splitPlaceCommand.Length == FirstTimePlacementArguments)
             {
@@ -93,6 +101,12 @@ namespace Toy_Robot.Core
                 if (!_board.IsValidPlacement(tempRobot.CurrentXPosition, tempRobot.CurrentYPosition))
                 {
                     return OutOfBoundsMessage;
+                }
+
+                // if there is an obstruction blocking the placement
+                if (IsObstructed(tempRobot.CurrentXPosition, tempRobot.CurrentYPosition))
+                {
+                    return string.Empty;
                 }
 
                 _robot = tempRobot;
@@ -111,11 +125,45 @@ namespace Toy_Robot.Core
                     return OutOfBoundsMessage;
                 }
 
+                // if there is an obstruction blocking the placement
+                if (IsObstructed(tempRobot.CurrentXPosition, tempRobot.CurrentYPosition))
+                {
+                    return string.Empty;
+                }
+
                 _robot.CurrentXPosition = tempRobot.CurrentXPosition;
                 _robot.CurrentYPosition = tempRobot.CurrentYPosition;
             }
             IsRobotPlaced = true;
             return string.Empty;
+        }
+
+        private bool IsObstructed(int XCoordinate, int YCoordinate)
+        {
+            var foundObstacle = _obstacles.FirstOrDefault(obstacle => obstacle.X.Equals(XCoordinate) && obstacle.Y.Equals(YCoordinate));
+            return (foundObstacle != null);
+        }
+
+        public void Avoid(string command)
+        {
+            var splitAvoidCommand = SplitCommand(command);
+            var coordinates = CreateObstacleCoordinates(splitAvoidCommand);
+            if (coordinates != null)
+            {
+                _obstacles.Add(new Obstacle(coordinates.X, coordinates.Y));
+            }
+        }
+
+        private Position CreateObstacleCoordinates(string[] splitAvoidCommand)
+        {
+            bool validX = int.TryParse(splitAvoidCommand[1], out int xPosition);
+            bool validY = int.TryParse(splitAvoidCommand[2], out int yPosition);
+
+            if (validX && validY)
+            {
+                return new Position { X = xPosition, Y = yPosition };
+            }
+            return null;
         }
 
         private IRobot CreateRobotValues(string[] splitPlaceCommand)
@@ -146,7 +194,7 @@ namespace Toy_Robot.Core
         }
 
         // split the place command into separate fields
-        private string[] SplitPlaceCommand(string command)
+        private string[] SplitCommand(string command)
         {
             char[] delimiterChars = new char[] { ',', ' ' };
             var splitCommand = command.Split(delimiterChars)
@@ -160,7 +208,7 @@ namespace Toy_Robot.Core
         public string Move()
         {
             int oldXPosition = _robot.CurrentXPosition;
-            int oldYPosition = _robot.CurrentXPosition;
+            int oldYPosition = _robot.CurrentYPosition;
 
             _robot.Move();
             if (!_board.IsValidPlacement(_robot.CurrentXPosition, _robot.CurrentYPosition))
@@ -168,6 +216,11 @@ namespace Toy_Robot.Core
                 // not a valid position, revert to previous position
                 RevertRobotPosition(oldXPosition, oldYPosition);
                 return OutOfBoundsMessage;
+            }
+
+            if (IsObstructed(_robot.CurrentXPosition, _robot.CurrentYPosition))
+            {
+                RevertRobotPosition(oldXPosition, oldYPosition);
             }
             return string.Empty;
         }

@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Toy_Robot.Core;
 using Toy_Robot.Core.Interfaces;
+using ToyRobot.Core.Interfaces;
+using ToyRobot.Core.Models;
 
 namespace Toy_Robot
 {
@@ -10,7 +13,8 @@ namespace Toy_Robot
         {
             string inputCommand = string.Empty;
             IBoard board = new Board(8, 8);
-            Simulator simulator = new Simulator(board);
+            List<Obstacle> obstacles = new List<Obstacle>();
+            Simulator simulator = new Simulator(board, obstacles);
             Console.WriteLine("Start application - enter commands (type ':q' to quit)");
 
             while(true)
