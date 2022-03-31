@@ -1,6 +1,6 @@
 ﻿namespace Toy_Robot.Core.Interfaces
 {
-    interface IRobot
+    public interface IRobot
     {
         int CurrentXPosition { get; set; }
         int CurrentYPosition { get; set; }

@@ -1,0 +1,26 @@
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\CoverletSourceRootsMapping
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.csproj.AssemblyReference.cache
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.AssemblyInfoInputs.cache
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.AssemblyInfo.cs
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.csproj.CoreCompileInputs.cache
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.deps.json
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.runtimeconfig.json
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.runtimeconfig.dev.json
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\testhost.exe
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\testhost.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Microsoft.TestPlatform.PlatformAbstractions.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.Test.deps.json
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.Test.runtimeconfig.json
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.Test.runtimeconfig.dev.json
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.Test.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.Test.pdb
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\bin\Debug\netcoreapp2.1\Toy Robot.pdb
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.csproj.CopyComplete
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.dll
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.pdb
+D:\Projects\telstra\toy-robot\Toy Robot\Toy Robot.Test\obj\Debug\netcoreapp2.1\Toy Robot.Test.genruntimeconfig.cache

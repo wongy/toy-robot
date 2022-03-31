@@ -1,5 +1,6 @@
 ﻿using System;
 using Toy_Robot.Core;
+using Toy_Robot.Core.Interfaces;
 
 namespace Toy_Robot
 {
@@ -8,7 +9,7 @@ namespace Toy_Robot
         static void Main(string[] args)
         {
             string inputCommand = string.Empty;
-            Board board = new Board();
+            IBoard board = new Board(8, 8);
             Simulator simulator = new Simulator(board);
             Console.WriteLine("Start application - enter commands (type ':q' to quit)");
 
